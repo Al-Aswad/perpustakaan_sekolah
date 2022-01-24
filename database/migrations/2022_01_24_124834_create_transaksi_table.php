@@ -22,6 +22,7 @@ class CreateTransaksiTable extends Migration
             $table->date('pinjam');
             $table->date('kembali');
             $table->integer('total');
+            $table->enum('status', ['DIPINJAM', "DIKEMBALIKAN"]);
             $table->timestamps();
         });
     }

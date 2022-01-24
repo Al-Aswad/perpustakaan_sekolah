@@ -58,3 +58,4 @@ Route::get('/pengguna-reset', [App\Http\Controllers\UserManajemenController::cla
 // User
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::get('/user-pinjam/{id}', [App\Http\Controllers\UserController::class, 'pinjam'])->name('user-pinjam');
+Route::post('/user-pinjam-save', [App\Http\Controllers\UserController::class, 'save'])->name('user-pinjam-save');

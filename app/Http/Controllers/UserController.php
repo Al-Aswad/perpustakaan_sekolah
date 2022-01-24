@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -43,6 +44,7 @@ class UserController extends Controller
         $book->kembali = $request->kembali;
         $book->total = $request->total;
         $book->status = "DIPINJAM";
+        $book->user_id = Auth::user()->id;
 
         $book->save();
 

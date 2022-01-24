@@ -23,6 +23,10 @@ class CreateTransaksiTable extends Migration
             $table->date('kembali');
             $table->integer('total');
             $table->enum('status', ['DIPINJAM', "DIKEMBALIKAN"]);
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

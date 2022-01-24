@@ -26,6 +26,8 @@ Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->na
 Route::post('/keluar', [App\Http\Controllers\AuthController::class, 'keluar'])->name('keluar');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dikembalikan/{id}', [App\Http\Controllers\HomeController::class, 'dikembalikan'])->name('dikembalikan');
+Route::get('/dipinjam/{id}', [App\Http\Controllers\HomeController::class, 'dipinjam'])->name('dipinjam');
 // Buku
 Route::get('/buku', [App\Http\Controllers\BukuController::class, 'index'])->name('buku');
 Route::get('/buku-add', [App\Http\Controllers\BukuController::class, 'add'])->name('buku-add');

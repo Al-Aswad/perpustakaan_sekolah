@@ -16,4 +16,13 @@ class Transaksi extends Model
         'pinjam',
         'kembali',
     ];
+
+    public function buku()
+    {
+        return $this->belongsTo(Book::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

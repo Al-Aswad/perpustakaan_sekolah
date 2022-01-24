@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -38,12 +39,19 @@ class UserManajemenController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->name;
-        $user->roles = "USER";
+        $jmlhuser = DB::select('SELECT * FROM users');
+        $countUser = count($jmlhuser);
+        if ($countUser >= 2) {
+            $user->roles = "USER";
+        }
         $user->password = Hash::make($request->password);
 
         $user->save();
-
-        return redirect('pengguna')->with('status', 'Pengguna berhasil ditambahkan!');
+        if (Auth::user()) {
+            return redirect('pengguna')->with('status', 'Pengguna berhasil ditambahkan!');
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function edit($id)

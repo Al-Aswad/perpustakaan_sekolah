@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+    // return view('welcome');
 });
 
 // Auth::routes();
+
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::post('/keluar', [App\Http\Controllers\AuthController::class, 'keluar'])->name('keluar');
@@ -53,3 +55,6 @@ Route::get('/pengguna-edit/{id}', [App\Http\Controllers\UserManajemenController:
 Route::put('/pengguna-update', [App\Http\Controllers\UserManajemenController::class, 'update'])->name('pengguna-update');
 Route::get('/pengguna-hapus/{id}', [App\Http\Controllers\UserManajemenController::class, 'delete'])->name('pengguna-hapus');
 Route::get('/pengguna-reset', [App\Http\Controllers\UserManajemenController::class, 'reset'])->name('pengguna-reset');
+// User
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+Route::get('/user-pinjam/{id}', [App\Http\Controllers\UserController::class, 'pinjam'])->name('user-pinjam');

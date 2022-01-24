@@ -4,6 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Role User pengguna akan otomatis jadi user setelah jumlah user 2
+
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('Tambah Pengguna') }}</div>
 

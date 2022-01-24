@@ -42,7 +42,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('buku') }}">
                                 Buku
                             </a>
@@ -56,7 +56,7 @@
                             <a class="nav-link" href="{{ route('penerbit') }}">
                                 Penerbit
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -78,12 +78,12 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('keluar') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('keluar') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>

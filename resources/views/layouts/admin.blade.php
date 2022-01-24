@@ -42,6 +42,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <?php if(Auth::user()){ ?>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('buku') }}">
                                 Buku
@@ -62,6 +63,8 @@
                                 User
                             </a>
                         </li>
+                        <?php } ;?>
+
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))

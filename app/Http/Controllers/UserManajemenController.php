@@ -38,7 +38,7 @@ class UserManajemenController extends Controller
         $user = new User;
 
         $user->name = $request->name;
-        $user->email = $request->name;
+        $user->email = $request->email;
         $jmlhuser = DB::select('SELECT * FROM users');
         $countUser = count($jmlhuser);
         if ($countUser >= 2) {

@@ -6,16 +6,18 @@
 
 
     <div class="card">
-        <div class="card-header">{{ __('Form tambah Buku') }}</div>
+        <div class="card-header">{{ __('Form Edit Buku') }}</div>
         <div class="card-body">
-            <form method="POST" action="{{ route('buku-save') }}">
+            <form method="POST" action="{{ route('buku-update') }}">
+                @method('put')
                 @csrf
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label>Judul Buku</label>
+                            <input name="id" type="hidden" value="<?= $buku->id ;?>" required>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                placeholder="Judul buku" value="{{ old('name') }}" required>
+                                placeholder="Judul buku" value="<?= old('name') ? old('name')  : $buku->name ?>">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -29,7 +31,8 @@
                             name="pengarang_id" required>
                             <option value="">Pilih pengarang</option>
                             @foreach ($pengarang as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            <option <?=$buku->pengarang_id==$item->id ? "selected" : "" ;?> value="{{ $item->id }}">{{
+                                $item->name }}</option>
                             @endforeach
                         </select>
                         @error('pengarang_id')
@@ -44,10 +47,11 @@
                         <div class="form-group">
                             <label>Penerbit</label>
                             <select id="inputState" class="form-control @error('penerbit_id') is-invalid @enderror"
-                                name="penerbit_id">
+                                name="penerbit_id" required>
                                 <option value="">Pilih penerbit</option>
                                 @foreach ($penerbit as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                <option <?=$buku->penerbit_id==$item->id ? "selected" : "" ;?> value="{{
+                                    $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
                             @error('penerbit_id')
@@ -60,7 +64,7 @@
                     <div class="col">
                         <label>Tahun</label>
                         <input type="year" class="form-control @error('year') is-invalid @enderror" placeholder="2022"
-                            name="year">
+                            name="year" value="<?= old('year') ? old('year') : $buku->tahun ;?>">
                         @error('year')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -73,7 +77,7 @@
                         <div class="form-group">
                             <label>Jumlah</label>
                             <input type="number" class="form-control @error('total') is-invalid @enderror"
-                                placeholder="0" name="total">
+                                placeholder="0" name="total" value="<?= $buku->total ;?>">
                             @error('total')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

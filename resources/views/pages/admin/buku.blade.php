@@ -19,26 +19,23 @@
             </tr>
         </thead>
         <tbody>
+            <?php $no=1;?>
+
+            @foreach ($books as $item)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Otto</td>
+                <td>{{ $no++ }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->pengarang->name }}</td>
+                <td>{{ $item->penerbit->name }}</td>
+                <td>{{ $item->tahun }}</td>
+                <td>{{ $item->total }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ route('buku-edit', ['id'=>$item->id]) }}">Edit</a>
+                    <a class="btn btn-warning" href="{{ route('buku-hapus', ['id'=>$item->id]) }}">Hapus</a>
+                </td>
+
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

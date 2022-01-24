@@ -25,6 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/buku', [App\Http\Controllers\BukuController::class, 'index'])->name('buku');
 Route::get('/buku-add', [App\Http\Controllers\BukuController::class, 'add'])->name('buku-add');
 Route::post('/buku-save', [App\Http\Controllers\BukuController::class, 'save'])->name('buku-save');
+Route::get('/buku-edit/{id}', [App\Http\Controllers\BukuController::class, 'edit'])->name('buku-edit');
+Route::put('/buku-update', [App\Http\Controllers\BukuController::class, 'update'])->name('buku-update');
+Route::get('/buku-hapus/{id}', [App\Http\Controllers\BukuController::class, 'delete'])->name('buku-hapus');
 // Penerbit
 Route::get('/penerbit', [App\Http\Controllers\PenerbitController::class, 'index'])->name('penerbit');
 Route::get('/penerbit-add', [App\Http\Controllers\PenerbitController::class, 'add'])->name('penerbit-add');

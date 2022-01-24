@@ -16,10 +16,6 @@
 
 </div>
 <div class="container">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">{{ $title }}</h1>
-        <a href="{{ route('buku-add') }}" class="btn btn-primary">Tambah Buku</a>
-    </div>
     <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -47,7 +43,7 @@
                     @if ($item->status=="DIPINJAM")
                     <a class="btn btn-success" href="{{ route('dikembalikan', ['id'=>$item->id]) }}">Dikembalikan</a>
                     @else
-                    <a class="btn btn-danger" href="{{ route('dipinjam', ['id'=>$item->id]) }}">BATaL</a>
+                    <a class="btn btn-danger" href="{{ route('dipinjam', ['id'=>$item->id]) }}">Batal</a>
                     @endif
                 </td>
 

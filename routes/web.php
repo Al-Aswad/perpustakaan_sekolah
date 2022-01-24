@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'index'])->name('login');
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
+Route::post('/keluar', [App\Http\Controllers\AuthController::class, 'keluar'])->name('keluar');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Buku
@@ -42,3 +45,11 @@ Route::post('/pengarang-save', [App\Http\Controllers\PengarangController::class,
 Route::get('/pengarang-edit/{id}', [App\Http\Controllers\PengarangController::class, 'edit'])->name('pengarang-edit');
 Route::put('/pengarang-update', [App\Http\Controllers\PengarangController::class, 'update'])->name('pengarang-update');
 Route::get('/pengarang-hapus/{id}', [App\Http\Controllers\PengarangController::class, 'delete'])->name('pengarang-hapus');
+//Manajemen User
+Route::get('/pengguna', [App\Http\Controllers\UserManajemenController::class, 'index'])->name('pengguna');
+Route::get('/pengguna-add', [App\Http\Controllers\UserManajemenController::class, 'add'])->name('pengguna-add');
+Route::post('/pengguna-save', [App\Http\Controllers\UserManajemenController::class, 'save'])->name('pengguna-save');
+Route::get('/pengguna-edit/{id}', [App\Http\Controllers\UserManajemenController::class, 'edit'])->name('pengguna-edit');
+Route::put('/pengguna-update', [App\Http\Controllers\UserManajemenController::class, 'update'])->name('pengguna-update');
+Route::get('/pengguna-hapus/{id}', [App\Http\Controllers\UserManajemenController::class, 'delete'])->name('pengguna-hapus');
+Route::get('/pengguna-reset', [App\Http\Controllers\UserManajemenController::class, 'reset'])->name('pengguna-reset');

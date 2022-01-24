@@ -57,6 +57,11 @@
                                 Penerbit
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('pengguna') }}">
+                                User
+                            </a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -78,12 +83,12 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('keluar') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('keluar') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
